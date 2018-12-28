@@ -1,0 +1,13 @@
+{:deps
+ {org.clojure/clojure       {:mvn/version "1.9.0"}
+  ; clockworks/datascript     {:git/url       "git@bitbucket.org:clockworksde/datascript.git"
+  ;                            :sha           "4a081ea1faaa6f0aae61157976e4ae57f2b8ada4"
+  ;                            :deps/manifest :deps}
+  ; clockworks/pullql         {:git/url       "git@bitbucket.org:clockworksde/pullql.git"
+  ;                            :sha           "5ff586f062bacabd3a89e2df69d3b769420567ed"
+  ;                            :deps/manifest :deps}
+  ; org.clojure/core.match    {:mvn/version "0.3.0-alpha5"}
+  ; clj-time                  {:mvn/version "0.15.0"}
+   clj-http                 {:mvn/version "3.9.1"}
+   org.clojure/data.json    {:mvn/version "0.2.6"}
+   http-kit                 {:mvn/version "2.3.0"}}}
