@@ -35,7 +35,6 @@
   ; stop the running server with a short timeout period to finish
   ; running requests
   (when (some? @server)
-    ;(log/info "stopping transactor")
     (@server :timeout 200)
     (reset! server nil)))
 
@@ -54,5 +53,4 @@
 (defn -main
   [& args]
   (println "starting the http server...")
-  ;(run-server routes (:server config)))
   (start-server! routes))
