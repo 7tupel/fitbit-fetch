@@ -12,8 +12,10 @@
  ;; Fitbit Web API Settings
  ; see [](https://dev.fitbit.com/build/reference/web-api/oauth2/)
  ; for a detailed description of the parameters and their meaning
- :fitbit {:client-id nil
+ ; :fetch-interval - time between fitbit api fetch calls in seconds 
+ :fitbit {:client-id "1234"
           :scope ["activity" "heartrate" "location" "sleep" "weight"]
           :redirect_uri "https://fitbit.daagg.abydos-net.com/v1/authorization/oauth2/codegrant"
           :promt "login consent"
-          :authorization-uri "https://www.fitbit.com/oauth2/authorize"}}
+          :authorization-uri "https://www.fitbit.com/oauth2/authorize"
+          :fetch-interval 60}}
