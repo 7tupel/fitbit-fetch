@@ -8,7 +8,9 @@
    [org.httpkit.server :refer [run-server]]
    [me.shenfeng.mustache :refer :all]
    [clojure.core.async :as async]
-   [fitbit-fetch.routes :refer [routes]]))
+   [fitbit-fetch.routes :refer [handler]]
+   [fitbit-fetch.state :as state]
+   [fitbit-fetch.util :as util]))
 
 
 ;; CONFIGURATION
@@ -20,10 +22,6 @@
 
 ;; EVENTBUS
 (defonce eventbus (async/chan))
-
-
-;; STATE
-(defonce state (atom nil))
 
 
 ;; The SERVER
@@ -52,5 +50,9 @@
 
 (defn -main
   [& args]
-  (println "starting the http server...")
-  (start-server! routes))
+  (println "starting fitbit-fetch service.")
+  (reset! state/state (state/mk-initial-state))
+  (state/set-csrf-token! (util/rand-str 32))
+  (println (state/get-state :csrf-token))
+  (println "starting the server...")
+  (start-server! #'handler))
